@@ -14,12 +14,11 @@ for link in soup.find_all("div", class_="instant"):
     buttonUrl = link.find("div", class_="small-button")
     s = buttonUrl['onclick']
     buttonUrl = s.partition("('")[-1].rpartition("')")[0]
-
+    #button obj
     button = {
         "name": buttonName,
         "url": buttonUrl
     }
     buttonList.append(button)
-
 #show
 print( json.dumps(buttonList) )
